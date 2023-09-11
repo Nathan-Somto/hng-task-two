@@ -17,8 +17,8 @@ export default function Poster({
   release_date,
 }: Partial<IMovie>) {
   return (
-    <article>
-      <Link to={`/movies/${id}`}>
+    <article >
+      <Link to={`/movies/${id}`} data-testid='movie-card'>
         <figure className="relative rounded-lg h-[350px] overflow-hidden ">
           <button className='absolute top-3 right-3 rounded-full h-10 w-10 flex z-2 bg-[rgba(243,244,246,0.5)] hover:opacity-50 backdrop-blur-[1px] items-center justify-center'>
             <svg
@@ -41,13 +41,14 @@ export default function Poster({
             src={`${BASE_IMG_URL}${poster_path}`}
             alt="movie poster"
             className="h-full object-cover w-full"
+            data-testid='movie-poster'
           />
         </figure>
         <div className="space-y-[0.35rem] mt-5">
           <p className="text-gray-400 text-xs font-semibold">
-            USA, {release_date?.split("-")[0]}
+           <span>USA, </span> <span data-testid='movie-release-date'>{release_date?.split("-")[0]}</span>
           </p>
-          <h3 className="text-gray-900 text-lg font-semibold">
+          <h3 className="text-gray-900 text-lg font-semibold" data-testid='movie-title'>
             {name || title || original_title}
           </h3>
           <div className="flex gap-5 items-center text-[12px] font-normal">
