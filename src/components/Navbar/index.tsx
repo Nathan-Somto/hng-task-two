@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from "react-router-dom";
-import Logo from "../../assets/Logo.svg";
+import tvLogo from "../../assets/tvLogo.svg";
 import Menu from "../../assets/Menu.svg";
 import Search from "../../assets/search.svg";
 import { useState,useEffect } from "react";
@@ -30,8 +30,9 @@ export default function Navbar() {
     <nav className=
     {`fixed inset-0 z-20 text-white w-full h-20 px-2 transition-all ease-in duration-300 md:px-6 ${show?'backdrop-blur-lg bg-[rgba(0,0,0,0.5)] ':'bg-transparent'} flex items-center justify-between`}>
       <Link to="/">
-        <figure>
-          <img src={Logo} alt="site logo" className='w-[120px] md:w-[180px] flex-shrink-0' />
+        <figure className='sm:inline-flex items-center gap-4 '>
+          <img src={tvLogo} alt="site logo" className='w-[50px] h-[50px]  flex-shrink-0' />
+          <p className='text-lg hidden sm:inline'>Movie Box</p>
         </figure>
       </Link>
       <form
@@ -46,7 +47,7 @@ export default function Navbar() {
           aria-label="search"
           name="search"
           placeholder="What do you want to watch?"
-          className=" placeholder:text-white placeholder:text-xs sm:placeholder-text-base text-xs sm:text-base outline-none flex-1 py-2 pr-[1rem] pl-[0.625rem]  w-[calc(100%-20px)] flex-shrink-0  text-white flex bg-transparent"
+          className=" placeholder:text-white placeholder:text-xs sm:placeholder:text-base text-xs sm:text-base outline-none flex-1 py-2 pr-[1rem] pl-[0.625rem]  w-[calc(100%-20px)] flex-shrink-0  text-white flex bg-transparent"
         />
         <button type="submit" className="m-[0.625rem] absolute right-0 inset-y-0 my-auto  w-4">
           <figure>
@@ -54,10 +55,10 @@ export default function Navbar() {
           </figure>
         </button>
       </form>
-      <button className="sm:inline-flex items-center font-semibold gap-4 hidden ">
-        <span>Sign in</span>
+      <button className="sm:inline-flex items-center font-semibold gap-4 ">
+        <span className="hidden sm:inline">Sign in</span>
         <figure className='hover:scale-125 transition-all ease-out duration-250'>
-          <img src={Menu} alt="menu" />
+          <img src={Menu} alt="menu" className='w-[50px] h-[50px]' />
         </figure>
       </button>
     </nav>

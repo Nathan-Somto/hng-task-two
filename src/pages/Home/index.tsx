@@ -19,21 +19,20 @@ export default function Home() {
     error,
     isError,
   } = useQuery({
-    queryKey: ["home", searchParams.get('q')],
+    queryKey: ["home", searchParams.get("q")],
     queryFn: () => getHomeData(searchParams.get("q") ?? ""),
   });
   if (isError) {
     console.error("err message >> ", (error as unknown as Error)?.message);
   }
-  if(isError){
+  if (isError) {
     return (
       <section className="h-screen w-full bg-white grid place-items-center">
-      <p className="text-3xl font-semibold text-rose-700">
-        Oops, something went wrong!
-      </p>
-    </section>
-  
-    )
+        <p className="text-3xl font-semibold text-rose-700">
+          Oops, something went wrong!
+        </p>
+      </section>
+    );
   }
   return (
     <>
@@ -41,11 +40,19 @@ export default function Home() {
       {isLoading ? (
         <BannerLoading />
       ) : (
-        <Banner data={results?.data?.results?.slice(0, 5)} />
+        <Banner
+          data={
+            searchParams.get("q")
+              ? results?.data?.results?.slice(0, 5)
+              : dummydata.results.slice(0, 5)
+          }
+        />
       )}
       <main className="px-[5%] mt-10">
         <section className="flex justify-between">
-          <h3 className="text-xl sm:text-4xl text-black font-semibold">Featured Movies</h3>
+          <h3 className="text-xl sm:text-4xl text-black font-semibold">
+            Featured Movies
+          </h3>
           <button className="text-rose-700 text-md sm:text-lg flex items-center gap-2 group">
             <span>See more</span>
             <img
@@ -56,15 +63,13 @@ export default function Home() {
           </button>
         </section>
         <MoviesContainer>
-          {isLoading ? (
-            Array(5)
-              .fill("")
-              .map((_, index) => <MovieLoading key={index} />)
-          ) : (
-            (results?.data as unknown as typeof dummydata)?.results
-              ?.slice(0, 10)
-              .map((item) => <MovieCard key={item.id} {...item} />)
-          )}
+          {isLoading
+            ? Array(5)
+                .fill("")
+                .map((_, index) => <MovieLoading key={index} />)
+            : (results?.data as unknown as typeof dummydata)?.results
+                ?.slice(0, 10)
+                .map((item) => <MovieCard key={item.id} {...item} />)}
         </MoviesContainer>
         {searchParams.get("q") &&
           results?.data?.results?.length === 0 &&

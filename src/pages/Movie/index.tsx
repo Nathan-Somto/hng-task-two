@@ -61,9 +61,15 @@ export default function Movie() {
                     result?.data?.name}
                 </h2>
                 <p data-testid="movie-release-date">
-                  {new Date(result?.data?.release_date).toUTCString()}
+                  {new Date(result?.data?.release_date)
+                    .toUTCString()
+                    .split(" ")
+                    .slice(0, 4)
+                    .join(" ") + " GMT"}
                 </p>
-                <p data-testid="movie-runtime">{result?.data?.runtime}m</p>
+                <p data-testid="movie-runtime">
+                  {result?.data?.runtime} minutes
+                </p>
                 <div className="flex flex-wrap gap-3">
                   {result?.data?.genres?.map(
                     (item: { id: string; name: string }) => (
@@ -79,7 +85,10 @@ export default function Movie() {
               </section>
               <section className="flex justify-between  gap-6 flex-wrap">
                 <div className="max-w-[600px] w-full flex-shrink-0">
-                  <p data-testid="movie-overview" className="mt-4 text-md lg:text-lg">
+                  <p
+                    data-testid="movie-overview"
+                    className="mt-4 text-md lg:text-lg"
+                  >
                     {result?.data?.overview}
                   </p>
                   <div className="text-[#333] text-md sm:text-xl space-y-3  mt-8">

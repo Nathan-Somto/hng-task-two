@@ -30,7 +30,7 @@ export default function Banner({ data }: Props) {
       <div
         className={`z-[7] ml-2 md:ml-6 max-w-[400px] ${textClasses} top-2/4 text-white space-y-3`}
       >
-        <h1 className=" font-semibold text-5xl !leading-[1.2]">
+        <h1 className=" font-semibold text-3xl md:text-4xl lg:text-5xl ">
           {data[activeIndex]?.name ||
             data[activeIndex]?.title ||
             data[activeIndex]?.original_title}
