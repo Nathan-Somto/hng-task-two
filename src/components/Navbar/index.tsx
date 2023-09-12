@@ -26,7 +26,7 @@ export default function Navbar() {
 }, []);
   return (
     <nav className=
-    {`fixed inset-0 z-20 text-white w-full h-20 px-2 transition-all ease-in duration-300 md:px-6 ${show?'backdrop-blur-lg ':'bg-transparent'} flex items-center justify-between`}>
+    {`fixed inset-0 z-20 text-white w-full h-20 px-2 transition-all ease-in duration-300 md:px-6 ${show?'backdrop-blur-lg bg-[rgba(0,0,0,0.5)] ':'bg-transparent'} flex items-center justify-between`}>
       <Link to="/">
         <figure>
           <img src={Logo} alt="site logo" className='w-[120px] md:w-[180px] flex-shrink-0' />
