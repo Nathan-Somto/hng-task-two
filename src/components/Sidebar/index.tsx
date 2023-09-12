@@ -41,12 +41,12 @@ export default function Sidebar() {
         setShowSidebar((prevState) => !prevState);  
   };
   return (
-    <nav className={`fixed top-0 left-0 z-8 md:max-w-fit md:h-screen   ${showSidebar ? 'max-w-fit h-screen' : 'w-full h-12 bg-white'} `}>
+    <nav className={`fixed top-0 left-0 z-8 md:max-w-fit md:h-screen    ${showSidebar ? 'max-w-fit h-screen' : 'w-full h-12 bg-white'} `}>
       <div
         ref={divRef}
         className={`w-[230px] ${
           showSidebar ? "flex" : "hidden"
-        } flex-col md:flex pb-3 bg-white rounded-r-[45px] rounded-b-[45px] border-r-[1px] h-full border-[rgba(0,0,0,0.3)]`}
+        } flex-col md:flex pb-3 bg-white rounded-r-[45px] justify-between rounded-b-[45px] border-r-[1px] h-full border-[rgba(0,0,0,0.3)]`}
       >
         <button className='absolute block  top-3 right-6 text-lg font-semibold text-gray-500 md:hidden' onClick={toggleSidebar}>
             X
