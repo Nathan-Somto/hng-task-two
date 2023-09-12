@@ -53,7 +53,7 @@ export default function Movie() {
               </div>
               <section className="flex items-center gap-3 flex-wrap mb-6">
                 <h2
-                  data-title="movie-title"
+                  data-testid="movie-title"
                   className="text-4xl font-semibold text-gray-700"
                 >
                   {result?.data?.original_title ||
