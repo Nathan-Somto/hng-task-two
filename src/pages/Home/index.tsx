@@ -26,13 +26,23 @@ export default function Home() {
   if (isError) {
     console.error("err message >> ", (error as unknown as Error)?.message);
   }
+  if(isError){
+    return (
+      <section className="h-screen w-full bg-white grid place-items-center">
+      <p className="text-3xl font-semibold text-rose-700">
+        Oops, something went wrong!
+      </p>
+    </section>
+  
+    )
+  }
   return (
     <>
       <Navbar />
       {isLoading ? (
         <BannerLoading />
       ) : (
-        <Banner data={dummydata.results.slice(0, 5)} />
+        <Banner data={results?.data?.results?.slice(0, 5)} />
       )}
       <main className="px-[5%] mt-10">
         <section className="flex justify-between">
@@ -51,12 +61,6 @@ export default function Home() {
             Array(5)
               .fill("")
               .map((_, index) => <MovieLoading key={index} />)
-          ) : isError ? (
-            <section>
-              <p className="text-2xl font-semibold text-rose-700">
-                Oops, something went wrong!
-              </p>
-            </section>
           ) : (
             (results?.data as unknown as typeof dummydata)?.results
               ?.slice(0, 10)

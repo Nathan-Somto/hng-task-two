@@ -40,7 +40,7 @@ export default function Banner({ data }: Props) {
             <img src={Imbd} alt="imbd badge" />
             <p>
               {" "}
-              {((data[activeIndex]?.vote_average as number) * 10).toFixed(1)} /
+              {typeof data[activeIndex]?.vote_average !== 'number' ? '0.0' : ((data[activeIndex]?.vote_average as number) * 10).toFixed(1)} /
               100
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function Banner({ data }: Props) {
         </button>
       </div>
       <div className="h-[80px] overflow-hidden absolute md:right-6 right-2 w-[60px] z-[7] items-center flex flex-col gap-2 text-white">
-        {new Array(5).fill("").map((_, index) => (
+        {new Array(data.length).fill("").map((_, index) => (
           <button
             key={index}
             onClick={() => setActiveIndex(index)}
