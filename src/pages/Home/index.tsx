@@ -22,7 +22,6 @@ export default function Home() {
     queryKey: ["home", searchParams.get('q')],
     queryFn: () => getHomeData(searchParams.get("q") ?? ""),
   });
-  console.log(results);
   if (isError) {
     console.error("err message >> ", (error as unknown as Error)?.message);
   }
