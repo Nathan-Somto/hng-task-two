@@ -1,10 +1,10 @@
 import Banner from "../../components/Banner";
 import Navbar from "../../components/Navbar";
-import PosterContainer from "../../components/PosterContainer";
+import MoviesContainer from "../../components/MoviesContainer";
 import ChevronRight from "../../assets/ChevronRight.svg";
-import dummydata from "../../components/Poster/dummydata.json";
-import Poster from "../../components/Poster";
-import PosterLoading from "../../components/Poster/loading";
+import dummydata from "../../components/MovieCard/dummydata.json";
+import MovieCard from "../../components/MovieCard";
+import MovieLoading from "../../components/MovieCard/loading";
 import BannerLoading from "../../components/Banner/loading";
 import Footer from "../../components/Footer";
 import { useEffect, useState } from "react";
@@ -40,15 +40,15 @@ export default function Home() {
             />
           </button>
         </section>
-        <PosterContainer>
+        <MoviesContainer>
           {isLoading
             ? Array(5)
                 .fill("")
-                .map((_, index) => <PosterLoading key={index} />)
+                .map((_, index) => <MovieLoading key={index} />)
             : dummydata.results
                 .slice(0, 10)
-                .map((item) => <Poster key={item.id} {...item} />)}
-        </PosterContainer>
+                .map((item) => <MovieCard key={item.id} {...item} />)}
+        </MoviesContainer>
       </main>
       <Footer />
     </>
