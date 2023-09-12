@@ -4,7 +4,13 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Home from './pages/Home'
 import Movie from './pages/Movie'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions:{
+    queries: {
+      refetchOnWindowFocus: false
+    }
+  }
+})
 
 function App() {
  

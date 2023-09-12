@@ -1,15 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Logo from "../../assets/Logo.svg";
 import Menu from "../../assets/Menu.svg";
 import Search from "../../assets/search.svg";
 import { useState,useEffect } from "react";
 export default function Navbar() {
-  const navigate = useNavigate();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_searchParams, setSearchParams] = useSearchParams();
   const [value, setValue] = useState("");
   const [show, setShow] = useState(false);
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/?q=${value}`);
+    setSearchParams({q:value});
+    setValue('');
   };
   useEffect(()=>{ 
     function blurEffect() {

@@ -19,7 +19,7 @@ export default function Home() {
     error,
     isError,
   } = useQuery({
-    queryKey: ["home"],
+    queryKey: ["home", searchParams.get('q')],
     queryFn: () => getHomeData(searchParams.get("q") ?? ""),
   });
   console.log(results);
