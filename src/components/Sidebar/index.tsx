@@ -41,7 +41,7 @@ export default function Sidebar() {
         setShowSidebar((prevState) => !prevState);  
   };
   return (
-    <nav className={`fixed top-0 left-0 z-8 md:max-w-fit md:h-screen    ${showSidebar ? 'max-w-fit h-screen' : 'w-full h-12 bg-white'} `}>
+    <nav className={`fixed top-0 left-0 z-[8] md:max-w-fit md:h-screen    ${showSidebar ? 'max-w-fit h-screen' : 'w-full h-12 bg-white'} `}>
       <div
         ref={divRef}
         className={`w-[230px] ${

@@ -45,8 +45,8 @@ export default function Home() {
       )}
       <main className="px-[5%] mt-10">
         <section className="flex justify-between">
-          <h3 className="text-4xl text-black font-semibold">Featured Movies</h3>
-          <button className="text-rose-700 text-lg flex items-center gap-2 group">
+          <h3 className="text-xl sm:text-4xl text-black font-semibold">Featured Movies</h3>
+          <button className="text-rose-700 text-md sm:text-lg flex items-center gap-2 group">
             <span>See more</span>
             <img
               src={ChevronRight}

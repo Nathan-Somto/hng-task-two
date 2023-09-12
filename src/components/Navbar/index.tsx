@@ -46,7 +46,7 @@ export default function Navbar() {
           aria-label="search"
           name="search"
           placeholder="What do you want to watch?"
-          className=" placeholder:text-white outline-none flex-1 py-2 pr-[1rem] pl-[0.625rem]  w-[calc(100%-20px)] flex-shrink-0  text-white flex bg-transparent"
+          className=" placeholder:text-white placeholder:text-xs sm:placeholder-text-base text-xs sm:text-base outline-none flex-1 py-2 pr-[1rem] pl-[0.625rem]  w-[calc(100%-20px)] flex-shrink-0  text-white flex bg-transparent"
         />
         <button type="submit" className="m-[0.625rem] absolute right-0 inset-y-0 my-auto  w-4">
           <figure>
