@@ -30,9 +30,9 @@ export default function Navbar() {
     <nav className=
     {`fixed inset-0 z-20 text-white w-full h-20 px-2 transition-all ease-in duration-300 md:px-6 ${show?'backdrop-blur-lg bg-[rgba(0,0,0,0.5)] ':'bg-transparent'} flex items-center justify-between`}>
       <Link to="/">
-        <figure className='sm:inline-flex items-center gap-4 '>
-          <img src={tvLogo} alt="site logo" className='w-[50px] h-[50px]  flex-shrink-0' />
-          <p className='text-lg hidden sm:inline'>Movie Box</p>
+        <figure className='inline-flex items-center font-semibold gap-2'>
+          <img src={tvLogo} alt="site logo" className='w-[40px] self-center flex-shrink-0 h-[40px]' />
+          <p className='sm:text-lg  text-md '>Movie Box</p>
         </figure>
       </Link>
       <form
@@ -55,10 +55,10 @@ export default function Navbar() {
           </figure>
         </button>
       </form>
-      <button className="sm:inline-flex items-center font-semibold gap-4 ">
+      <button className="sm:inline-flex hidden items-center font-semibold gap-4 ">
         <span className="hidden sm:inline">Sign in</span>
         <figure className='hover:scale-125 transition-all ease-out duration-250'>
-          <img src={Menu} alt="menu" className='w-[50px] h-[50px]' />
+          <img src={Menu} alt="menu" className='w-[35px] h-[35px] flex-shrink-0' />
         </figure>
       </button>
     </nav>

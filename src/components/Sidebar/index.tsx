@@ -6,6 +6,7 @@ import Series from "../../assets/Series.svg";
 import Menu from "../../assets/Menu.svg";
 import TvLogo from "../../assets/tvLogo.svg";
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -51,10 +52,12 @@ export default function Sidebar() {
         <button className='absolute block  top-3 right-6 text-lg font-semibold text-gray-500 md:hidden' onClick={toggleSidebar}>
             X
         </button>
+        <Link to={'/'}>
         <figure className="mb-8 mt-7 px-5 flex items-center text-xl gap-2 text-[#333] font-semibold">
           <img src={TvLogo} className='h-[35px] w-[35px]' />
           <span>MovieBox</span>
         </figure>
+        </Link>
         <ul className="flex flex-col gap-3 ">
           {data.slice(0, -1).map((item) => (
             <li

@@ -76,8 +76,8 @@ export default function Poster({
               {new Date((release_date as string) ?? "2023-12-1")
                 .toUTCString()
                 .split(" ")
-                .slice(0, 4)
-                .join(" ") + " GMT"}
+                .slice(1, 4)
+                .join(" ") + " UTC+00:00"}
             </span>
           </p>
           <h3

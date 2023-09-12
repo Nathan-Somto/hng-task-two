@@ -64,8 +64,8 @@ export default function Movie() {
                   {new Date(result?.data?.release_date)
                     .toUTCString()
                     .split(" ")
-                    .slice(0, 4)
-                    .join(" ") + " GMT"}
+                    .slice(1, 4)
+                    .join(" ") + " UTC+00:00"}
                 </p>
                 <p data-testid="movie-runtime">
                   {result?.data?.runtime} minutes
