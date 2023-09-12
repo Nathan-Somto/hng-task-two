@@ -9,7 +9,7 @@ export default function Navbar() {
   const [show, setShow] = useState(false);
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/search?q=${value}`);
+    navigate(`/?q=${value}`);
   };
   useEffect(()=>{ 
     function blurEffect() {

@@ -3,7 +3,7 @@ import './App.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Home from './pages/Home'
 import Movie from './pages/Movie'
-import Search from './pages/Search'
+
 const queryClient = new QueryClient()
 
 function App() {
@@ -14,7 +14,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/movies/:id' element={<Movie/>}/>
-        <Route path='/search' element={<Search/>}/>
       </Routes>
      </QueryClientProvider>
   )

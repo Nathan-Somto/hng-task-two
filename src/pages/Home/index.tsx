@@ -7,19 +7,25 @@ import MovieCard from "../../components/MovieCard";
 import MovieLoading from "../../components/MovieCard/loading";
 import BannerLoading from "../../components/Banner/loading";
 import Footer from "../../components/Footer";
-import { useEffect, useState } from "react";
-/**
- *
- * @todo replace with actual data fetching logic.
- */
+import { useQuery } from "@tanstack/react-query";
+import { getHomeData } from "../../services/getHomeData";
+import { useSearchParams } from "react-router-dom";
+
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-   useEffect(()=>{
-   const timer = setTimeout(()=>{
-      setIsLoading(false);
-    },3500)
-    return () => clearTimeout(timer);
-  },[]);
+  const [searchParams] = useSearchParams();
+  const {
+    isLoading,
+    data: results,
+    error,
+    isError,
+  } = useQuery({
+    queryKey: ["home"],
+    queryFn: () => getHomeData(searchParams.get("q") ?? ""),
+  });
+  console.log(results);
+  if (isError) {
+    console.error("err message >> ", (error as unknown as Error)?.message);
+  }
   return (
     <>
       <Navbar />
@@ -41,14 +47,32 @@ export default function Home() {
           </button>
         </section>
         <MoviesContainer>
-          {isLoading
-            ? Array(5)
-                .fill("")
-                .map((_, index) => <MovieLoading key={index} />)
-            : dummydata.results
-                .slice(0, 10)
-                .map((item) => <MovieCard key={item.id} {...item} />)}
+          {isLoading ? (
+            Array(5)
+              .fill("")
+              .map((_, index) => <MovieLoading key={index} />)
+          ) : isError ? (
+            <section>
+              <p className="text-2xl font-semibold text-rose-700">
+                Oops, something went wrong!
+              </p>
+            </section>
+          ) : (
+            (results?.data as unknown as typeof dummydata)?.results
+              ?.slice(0, 10)
+              .map((item) => <MovieCard key={item.id} {...item} />)
+          )}
         </MoviesContainer>
+        {searchParams.get("q") &&
+          results?.data?.results?.length === 0 &&
+          !isLoading && (
+            <section>
+              <p className="text-gray-500 text-2xl font-semibold text-center">
+                No movie in our massive box matches{" "}
+                <span className="text-rose-700">{searchParams.get("q")}</span>
+              </p>
+            </section>
+          )}
       </main>
       <Footer />
     </>
