@@ -5,7 +5,7 @@ import Youtube from '../../assets/Youtube.svg'
 
 export default function Footer() {
   return (
-    <footer className='max-w-[500px] w-[80%] mt-8 py-6  items-center mx-auto text-md sm:text-lg font-semibold flex flex-col gap-9'>
+    <footer className='max-w-[500px] w-[90%] mt-8 py-6  items-center mx-auto text-sm md:text-lg font-semibold flex flex-col gap-9'>
         <div className='flex gap-8 items-center justify-center'>
            <a href="https://facebook.com">
             <img src={Facebook} alt='facebook icon'/>
@@ -20,7 +20,7 @@ export default function Footer() {
             <img src={Youtube} alt='youtube icon'/>
            </a>
         </div>
-        <div className='flex gap-4 justify-center text-gray-900'>
+        <div className='flex gap-2 lg:gap-4 justify-center text-gray-900'>
             <p>Conditions of use</p>
             <p>Privacy & Policy</p>
             <p>Press Room</p>

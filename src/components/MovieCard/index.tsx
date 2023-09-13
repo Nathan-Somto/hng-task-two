@@ -73,11 +73,7 @@ export default function Poster({
           <p className="text-gray-400 text-xs font-semibold">
             <span>USA, </span>{" "}
             <span data-testid="movie-release-date">
-              {new Date((release_date as string) ?? "2023-12-1")
-                .toUTCString()
-                .split(" ")
-                .slice(1, 4)
-                .join(" ") + " UTC+00:00"}
+              {release_date}
             </span>
           </p>
           <h3

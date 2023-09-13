@@ -61,11 +61,7 @@ export default function Movie() {
                     result?.data?.name}
                 </h2>
                 <p data-testid="movie-release-date">
-                  {new Date(result?.data?.release_date)
-                    .toUTCString()
-                    .split(" ")
-                    .slice(1, 4)
-                    .join(" ") + " UTC+00:00"}
+                  {result?.data?.release_date}
                 </p>
                 <p data-testid="movie-runtime">
                   {result?.data?.runtime} minutes
